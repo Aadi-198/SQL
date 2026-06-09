@@ -1,5 +1,10 @@
 #import required tools
 import sqlite3
+import os
+import pathlib
+
+#Change to current diresctory
+os.chdir(pathlib.Path(__file__).resolve().parent)
 
 #Connect to database
 conn = sqlite3.connect("customer.db")
@@ -8,7 +13,7 @@ conn = sqlite3.connect("customer.db")
 curs = conn.cursor()
 
 #Create a table
-curs.execute("""CREATE TABLE customers (
+curs.execute("""CREATE TABLE IF NOT EXISTS customers (
              first_name text,
              last_name text,
              email text
@@ -21,6 +26,7 @@ curs.execute("""CREATE TABLE customers (
 #TEXT
 #BLOB
 
+curs.execute("INSERT INTO customers VALUES ('Lisa', 'Willam', 'abc@email.com')")
 #commit the changes
 conn.commit()
 
