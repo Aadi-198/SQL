@@ -26,7 +26,10 @@ curs.execute("""CREATE TABLE IF NOT EXISTS customers (
 #TEXT
 #BLOB
 
-curs.execute("INSERT INTO customers VALUES ('Lisa', 'Willam', 'abc@email.com')")
+#Save the data
+curs.execute("INSERT INTO customers VALUES ('Tom', 'Oliver', 'op@email.com')")
+print("\nData Saved\n")
+
 #commit the changes
 conn.commit()
 
