@@ -26,8 +26,15 @@ curs.execute("""CREATE TABLE IF NOT EXISTS customers (
 #TEXT
 #BLOB
 
-#Save the data
+#Save the singular data
 curs.execute("INSERT INTO customers VALUES ('Tom', 'Oliver', 'op@email.com')")
+
+#Save data as a list
+many_customers = [('Willam', 'Shakespear', 'will@email.com'),
+                  ('Nicola', 'Tesla', 'nickdigiovani@email.com'),
+                  ('su', 's', 'suspicious@email.com')]
+
+curs.executemany("INSERT INTO customers VALUES (?,?,?)", many_customers)
 print("\nData Saved\n")
 
 #commit the changes
