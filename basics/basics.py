@@ -3,7 +3,7 @@ import sqlite3
 import os
 import pathlib
 
-#Change to current diresctory
+#Change to current directory
 os.chdir(pathlib.Path(__file__).resolve().parent)
 
 #Connect to database
