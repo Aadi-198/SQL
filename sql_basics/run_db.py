@@ -17,6 +17,11 @@ def run_sql_file():
         sql_script = file.read()
         
     cursor.execute(sql_script)
+
+    print("Injecting bulk data...")
+    with open('insert_data.sql', 'r') as file:
+        data_script = file.read()
+    cursor.execute(data_script)
     
     connection.commit()
     connection.close()
