@@ -16,12 +16,12 @@ def run_sql_file():
     with open('schema.sql', 'r') as file:
         sql_script = file.read()
         
-    cursor.execute(sql_script)
+    cursor.executescript(sql_script)
 
     print("Injecting bulk data...")
     with open('insert_data.sql', 'r') as file:
         data_script = file.read()
-    cursor.execute(data_script)
+    cursor.executescript(data_script)
     
     connection.commit()
     connection.close()
